@@ -16,7 +16,10 @@
         <!--      Buat h1 untuk menampilkan nilai ketika tombol tekan di klik-->
         <h1 class="text-warning"></h1>
         <!--   Buat tombol-->
-        <button type="button" class="btn btn-dark">Munculkan Counter!</button>
+        <div class="d-flex flex-column">
+          <button type="button" class="btn btn-dark" id="btn-1">Munculkan Counter!</button>
+          <button type="button" class="mt-2 btn btn-danger" id="btn-2">Reset Counter!</button>
+        </div>
       </div>
     </div>
 
@@ -31,10 +34,28 @@
       $(document).ready(function () {
         //buat value 1
         let value = 1;
+        const reset = 0;
         //ketika tombol tekan di klik
-        $(".btn").on("click", function () {
+        $("#btn-1").on("click", function () {
           //tambah value dan tampilkan pada h1
           $("h1").html(value++);
+        });
+
+        $("#btn-2").on("click", function () {
+          //tambah value dan tampilkan pada h1
+          $("h1").html(reset);
+          value = 1;
+        });
+
+        $("#container").mouseenter(function () {
+          $(this).css("background-color", "blue");
+          $("#btn-1").removeClass("btn-secondary");
+          $("#btn-1").addClass("btn-dark");
+        });
+
+        $("#container").mouseleave(function () {
+          $("#btn-1").removeClass("btn-dark");
+          $("#btn-1").addClass("btn-secondary");
         });
       });
     </script>

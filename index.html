@@ -33,12 +33,16 @@
       //Ketika dokumen HTML sudah siap di reload
       $(document).ready(function () {
         //buat value 1
-        let value = 1;
+        let value = 0;
         const reset = 0;
         //ketika tombol tekan di klik
         $("#btn-1").on("click", function () {
           //tambah value dan tampilkan pada h1
           $("h1").html(value++);
+
+          if (value == 1) {
+            $("#btn-1").text("Tambah!");
+          }
         });
 
         $("#btn-2").on("click", function () {
